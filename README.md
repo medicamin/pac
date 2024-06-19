@@ -27,6 +27,12 @@ $ ln -s $(realpath pac/pac.sh) ~/.local/bin/pac
 
 If you happen to have a binary called `pac` already installed (check with `which pac`), then just use another name for the symlink.
 
+# Requirements:
+
+$ sudo pacman -S pacman-contrib reflector fzf pkgfile
+an AUR Helper
+an admin commander such as sudo or doas
+
 # How to use?
 
 Run `pac` with no arguments to get an overview of the supported commands:
