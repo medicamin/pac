@@ -29,7 +29,9 @@ If you happen to have a binary called `pac` already installed (check with `which
 
 # Requirements:
 
+```
 $ sudo pacman -S pacman-contrib reflector fzf pkgfile
+```
 an AUR Helper
 an admin commander such as sudo or doas
 
