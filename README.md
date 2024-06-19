@@ -21,7 +21,7 @@ This script is **not**:
 Clone the repo and copy or symlink the script to a directory that's in the $PATH:
 
 ```shell
-$ git clone https://github.com/IndrekHaav/pac
+$ git clone https://github.com/medicamin/pac
 $ ln -s $(realpath pac/pac.sh) ~/.local/bin/pac
 ```
 
@@ -33,7 +33,7 @@ If you happen to have a binary called `pac` already installed (check with `which
 $ sudo pacman -S pacman-contrib reflector fzf pkgfile
 ```
 an AUR Helper
-an admin commander such as sudo or doas
+and an admin commander such as sudo or doas
 
 # How to use?
 
@@ -43,24 +43,31 @@ Run `pac` with no arguments to get an overview of the supported commands:
 $ pac
 Usage: pac command
 
-Available commands:
-    search <string>         Searches for packages matching <string>
-    show <package>          Returns information about <package>
-    install <package>       Installs <package>
-    remove <package>        Removes <package>
-    autoremove <package>    Removes <package> and all its unneeded dependencies
-    autoremove              Removes all unneeded dependencies
-    clean                   Removes unneeded cached packages and sync database
-    upgrade, dist-upgrade   Performs a full system upgrade
-    list --installed        Lists all installed packages
-         --manual           Lists all manually installed packages
-         --upgradable       Lists all upgradable packages
-         --all              Lists all available packages
-    depends <package>       Shows a list of dependencies for <package>
-    rdepends <package>      Shows a list of packages that depend on <package>
+Working with Packages
+    -s,  search <string>	Search for packages matching <string>
+    -f,  find <file>		Find the package owner of the file (path or name) 
+    -sh, show <packages>	Returns information about <packages>
+    -i,  install <packages>	Install <packages>
+    -r,  remove <packages>	Remove <packages>
+    -rd, removedep <packages>	Remove <packages> and all their dependencies
+    -ro, removeorphan		Remove all orphan packages and their dependencies
+    -u,  update			Perform a full system upgrade
+    -m,  mirrors		Generate mirrorlist sorted by 10 fastest servers
+    -d,  depends <package>	Shows a list of dependencies for <package>
+    -do, dependson <package>	Shows a list of packages that depend on <package>
+    -v,  view			Display content of a file inside a tar package
+    
+Browse packages
+    -bd, database	  	Browse all available packages
+    -bi, installed	  	Browse all installed packages
+    -bf, foreign	  	Browse all manually installed packages
+    -bn, nodeps	  		Browse packages with no dependency
+    -bo, orphans	  	Browse orphan packages
+    -bu, updatable	  	Browse upgradable packages
+    -l,  list			Create a list of installed packages in the home directory
+    
+Pacman Database
+    -c,  clean			Clear pacman cache, keeps only latest package
+    -p,  purge			Clear pacman cache, keeps nothing   
+    -db, unlock			Unlock database by removing /var/lib/pacman/db.lck
 ```
-
-# TODO
-
-- add more apt subcommands (download, etc.)
-- check that pacman exists / OS is Arch
